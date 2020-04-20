@@ -28,9 +28,9 @@ export default {
 .navbar {
   display: flex;
   width: 95.5vw;
-  height: 56px;
+  height: 50px;
   padding: 10px 40px 10px 25px;
-  margin: -8px;
+  margin: -8px -8px 0;
   box-shadow: 3px 3px 5px 0 rgba(102, 102, 102, 0.5);
   font-family: "Baloo 2", sans-serif;
   background-image: linear-gradient(
@@ -53,7 +53,7 @@ export default {
   }
 
   .navbar-link {
-    padding-top: 10px;
+    padding-top: 8px;
     font-size: 24px;
     color: white;
 
