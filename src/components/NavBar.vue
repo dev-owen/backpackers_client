@@ -1,9 +1,11 @@
 <template>
   <div class="navbar">
-    <span class="navbar-logo">BACKPACKERS</span>
+    <span class="navbar-logo">
+      <router-link to="/">BACKPACKERS</router-link>
+    </span>
     <span class="navbar-link">
       <div>
-        About
+        <router-link to="/about">About</router-link>
       </div>
       <div>
         Travel
@@ -40,7 +42,10 @@ export default {
     #f0af0b 67%,
     #efa90e
   );
-
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   span {
     /*vertical-align: middle;*/
   }
