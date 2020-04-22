@@ -3,19 +3,13 @@
     <div class="catch-phrase">{{ message }}</div>
     <div class="travel-filter">
       <div class="country filter-selection">
-        <div class="filter-sentence">
-          Select the<br />
-          <span>Country</span>
-        </div>
+        <div class="filter-sentence">{{ selectCountry }}</div>
         <div class="filter-button">
           <button>SOUTH KOREA</button>
         </div>
       </div>
       <div class="city-region filter-selection">
-        <div class="filter-sentence">
-          Select the<br />
-          <span>City/Region</span>
-        </div>
+        <div class="filter-sentence">{{ selectCity }}</div>
         <div class="filter-button">
           <button>JEONJU</button>
         </div>
@@ -29,7 +23,9 @@ export default {
   name: "MainHook",
   data() {
     return {
-      message: `The world is \nmuch bigger than \nyou expected`
+      message: `The world is \nmuch bigger than \nyou expected`,
+      selectCountry: `Select the \nCountry`,
+      selectCity: `Select the \nCity/Region`
     };
   }
 };
@@ -47,6 +43,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
+  white-space: pre;
 
   .catch-phrase {
     display: inline-block;
@@ -61,7 +58,6 @@ export default {
     font-size: 54px;
     font-weight: 600;
     font-family: "Baloo 2", sans-serif;
-    white-space: pre;
     line-height: 1.25;
     letter-spacing: -0.68px;
   }
@@ -69,8 +65,8 @@ export default {
   .travel-filter {
     display: inline-flex;
     position: relative;
-    width: 460px;
-    height: 225px;
+    width: 430px;
+    height: 210px;
     top: 90px;
     margin-right: 50px;
     border: 1px solid white;
@@ -79,17 +75,47 @@ export default {
     box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.3);
     background-color: #ffffff;
     flex-direction: column;
+    justify-content: space-around;
 
     .filter-selection {
       display: flex;
-      padding: 35px 10px;
+      padding: 15px 5px;
       margin: 5px;
       justify-content: space-around;
-      border: 1px solid black;
       flex-direction: row;
 
       .filter-sentence {
+        width: 100px;
+        height: fit-content;
         display: flex;
+        padding: 5px;
+        font-size: 20px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.17;
+        letter-spacing: -0.28px;
+        text-align: left;
+        color: #384ace;
+      }
+
+      .filter-button button {
+        width: 200px;
+        height: 60px;
+        border-radius: 5.7px;
+        box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.25);
+        background-image: linear-gradient(to right, #5369f1 0%, #6242c4 99%);
+        font-size: 22px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.28;
+        letter-spacing: normal;
+        color: white;
+      }
+
+      button:focus {
+        outline: 0;
       }
     }
   }
