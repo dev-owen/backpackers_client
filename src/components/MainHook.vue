@@ -79,7 +79,6 @@ export default {
 
     .filter-selection {
       display: flex;
-      padding: 15px 5px;
       margin: 5px;
       justify-content: space-around;
       flex-direction: row;
@@ -117,6 +116,14 @@ export default {
       button:focus {
         outline: 0;
       }
+    }
+
+    .filter-selection:nth-child(1) {
+      padding: 20px 5px 10px;
+    }
+
+    .filter-selection:nth-child(2) {
+      padding: 10px 5px 20px;
     }
   }
 }
