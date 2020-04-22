@@ -13,7 +13,7 @@
       <div>
         Upload
       </div>
-      <div>
+      <div class="login-button">
         Log in
       </div>
     </span>
@@ -59,13 +59,20 @@ export default {
 
   .navbar-link {
     padding-top: 8px;
-    font-size: 24px;
+    font-size: 20px;
     color: white;
 
     div {
       vertical-align: middle;
-      padding: 10px;
+      padding: 6px 12px;
       display: inline;
+    }
+
+    .login-button {
+      padding: 6px 18px;
+      border-radius: 7.7px;
+      box-shadow: 4px 2px 3px 0 rgba(228, 157, 43, 0.4);
+      background-image: linear-gradient(to right, #5369f1 0%, #6242c4 99%);
     }
   }
 }
