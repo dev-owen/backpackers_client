@@ -14,22 +14,44 @@
         Upload
       </div>
       <div class="login-button">
-        Log in
+        <button id="show-modal" v-on:click="showModal()">Log in</button>
       </div>
     </span>
+    <LoginModal
+      v-if="displayModal"
+      v-bind:display="displayModal"
+      v-on:childToParent="onChildClick"
+    />
   </div>
 </template>
 
 <script>
+import LoginModal from "./LoginModal.vue";
+
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  components: {
+    LoginModal
+  },
+  data() {
+    return {
+      displayModal: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.displayModal = true;
+    },
+    onChildClick(value) {
+      this.displayModal = value;
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
 .navbar {
   display: flex;
-  width: 95.5vw;
   height: 50px;
   padding: 10px 40px 10px 25px;
   margin: -8px -8px 0;
@@ -73,6 +95,18 @@ export default {
       border-radius: 7.7px;
       box-shadow: 4px 2px 3px 0 rgba(228, 157, 43, 0.4);
       background-image: linear-gradient(to right, #5369f1 0%, #6242c4 99%);
+
+      button {
+        border: transparent;
+        background-color: transparent;
+        font-size: 20px;
+        color: white;
+        padding: 0;
+      }
+
+      button:focus {
+        outline: 0;
+      }
     }
   }
 }
