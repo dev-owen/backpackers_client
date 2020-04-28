@@ -1,19 +1,19 @@
 <template>
   <div class="main">
-    <MainTitle />
+    <MainHook />
     <TravelSpotList />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import MainTitle from "../components/MainHook";
+import MainHook from "../components/MainHook";
 import TravelSpotList from "../components/TravelSpotList";
 export default {
   name: "Main",
   components: {
     TravelSpotList,
-    MainTitle
+    MainHook
   }
 };
 </script>

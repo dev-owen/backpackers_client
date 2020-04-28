@@ -5,7 +5,12 @@
       <div class="country filter-selection">
         <div class="filter-sentence">{{ selectCountry }}</div>
         <div class="filter-button">
-          <button>SOUTH KOREA</button>
+          <select v-model="this.value">
+            <option disabled value="">select country</option>
+            <option v-bind:key="item" v-for="item in items" :value="item">{{
+              item
+            }}</option>
+          </select>
         </div>
       </div>
       <div class="city-region filter-selection">
@@ -25,9 +30,11 @@ export default {
     return {
       message: `The world is \nmuch bigger than \nyou expected`,
       selectCountry: `Select the \nCountry`,
-      selectCity: `Select the \nCity/Region`
+      selectCity: `Select the \nCity/Region`,
+      items: ["South Korea", "France", "Australia", "Cuba"]
     };
-  }
+  },
+  methods: {}
 };
 </script>
 
@@ -68,7 +75,7 @@ export default {
     width: 430px;
     height: 210px;
     top: 90px;
-    margin-right: 50px;
+    margin-right: 30px;
     border: 1px solid white;
     opacity: 0.8;
     border-radius: 7.6px;
@@ -111,6 +118,27 @@ export default {
         line-height: 1.28;
         letter-spacing: normal;
         color: white;
+      }
+
+      .filter-button select {
+        width: 200px;
+        height: 60px;
+        border-radius: 5.7px;
+        box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.25);
+        background-image: linear-gradient(to right, #5369f1 0%, #6242c4 99%);
+        font-size: 22px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.28;
+        letter-spacing: normal;
+        color: white;
+        appearance: none;
+        padding-left: 30px;
+      }
+
+      select:focus {
+        outline: 0;
       }
 
       button:focus {
