@@ -5,18 +5,29 @@
       <div class="country filter-selection">
         <div class="filter-sentence">{{ selectCountry }}</div>
         <div class="filter-button">
-          <select v-model="this.value">
+          <select v-model="country">
             <option disabled value="">select country</option>
-            <option v-bind:key="item" v-for="item in items" :value="item">{{
-              item
-            }}</option>
+            <option
+              v-bind:key="country"
+              v-for="country in countryList"
+              :value="country"
+              >{{ country }}</option
+            >
           </select>
         </div>
       </div>
       <div class="city-region filter-selection">
         <div class="filter-sentence">{{ selectCity }}</div>
         <div class="filter-button">
-          <button>JEONJU</button>
+          <select v-model="city">
+            <option disabled value="">select city</option>
+            <option
+              v-bind:key="city"
+              v-for="city in cityList[country]"
+              :value="city"
+              >{{ city }}</option
+            >
+          </select>
         </div>
       </div>
     </div>
@@ -31,7 +42,14 @@ export default {
       message: `The world is \nmuch bigger than \nyou expected`,
       selectCountry: `Select the \nCountry`,
       selectCity: `Select the \nCity/Region`,
-      items: ["South Korea", "France", "Australia", "Cuba"]
+      countryList: ["SouthKorea", "France", "Austraila"],
+      cityList: {
+        SouthKorea: ["Seoul", "Busan", "Jeonju"],
+        France: ["Paris", "Lyon", "Nice"],
+        Austraila: ["Sydney", "Brisbaine"]
+      },
+      country: "SouthKorea",
+      city: "Jeonju"
     };
   },
   methods: {}
