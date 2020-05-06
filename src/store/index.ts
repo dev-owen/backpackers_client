@@ -8,7 +8,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: {},
+    user: {
+      username: "",
+      password: ""
+    },
     spots: []
   },
   getters,

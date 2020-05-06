@@ -16,6 +16,7 @@
       <div class="login-button">
         <button id="show-modal" v-on:click="showModal()">Log in</button>
       </div>
+      <div>{{ getUserInfo }}</div>
     </span>
     <LoginModal
       v-if="displayModal"
@@ -35,7 +36,8 @@ export default {
   },
   data() {
     return {
-      displayModal: false
+      displayModal: false,
+      login: false
     };
   },
   methods: {
@@ -44,6 +46,11 @@ export default {
     },
     onChildClick(value) {
       this.displayModal = value;
+    }
+  },
+  computed: {
+    getUserInfo() {
+      return this.$store.getters.GET_USER.username;
     }
   }
 };
@@ -75,7 +82,9 @@ export default {
   .navbar-logo {
     font-size: 32px;
     font-weight: bold;
-    color: #5369f1;
+    background: linear-gradient(to right, #5369f1, #6242c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-right: auto;
   }
 
