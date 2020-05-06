@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const api = {
-  news: "https://api.hnpwa.com/v0/news/1.json"
+  spots: "https://api.hnpwa.com/v0/news/1.json"
 };
 
-function fetchNews() {
-  return axios.get(api.news);
+function fetchSpots() {
+  return axios.get(api.spots);
 }
 
-export { fetchNews };
+export { fetchSpots };

@@ -1,20 +1,18 @@
 <template>
   <div class="travelspot-list">
-    <div v-bind:key="spot.id" v-for="(spot, index) in spots">
+    <div v-bind:key="spot.id" v-for="(spot, index) in this.$store.state.spots">
       <TravelSpot v-bind:content="spot" v-bind:rating="index + 1" />
     </div>
   </div>
 </template>
 
 <script>
-import { fetchNews } from "../api";
 import TravelSpot from "./TravelSpot";
 
 export default {
   name: "TravelSpotList",
   data() {
     return {
-      spots: [],
       rating: 1
     };
   },
@@ -22,13 +20,10 @@ export default {
     TravelSpot
   },
   created() {
-    fetchNews()
-      .then(res => {
-        this.spots = res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.$store
+      .dispatch("FETCH_SPOTS")
+      .then(() => console.log("success"))
+      .catch(() => console.log("fail"));
   }
 };
 </script>
