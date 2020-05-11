@@ -18,7 +18,11 @@
           {{ isLoggedIn ? "Log out" : "Log in" }}
         </button>
       </div>
-      <div v-if="isLoggedIn">{{ getUserInfo }}</div>
+      <div v-if="isLoggedIn">
+        <router-link v-bind:to="`/user/${getUsername}`">{{
+          getUsername
+        }}</router-link>
+      </div>
     </span>
     <LoginModal
       v-if="displayModal"
@@ -54,7 +58,7 @@ export default {
     }
   },
   computed: {
-    getUserInfo() {
+    getUsername() {
       return this.$store.getters.GET_USER.username;
     },
     isLoggedIn() {
