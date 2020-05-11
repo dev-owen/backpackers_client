@@ -14,9 +14,11 @@
         Upload
       </div>
       <div class="login-button">
-        <button id="show-modal" v-on:click="showModal()">Log in</button>
+        <button id="show-modal" v-on:click="showModal()">
+          {{ isLoggedIn ? "Log out" : "Log in" }}
+        </button>
       </div>
-      <div>{{ getUserInfo }}</div>
+      <div v-if="isLoggedIn">{{ getUserInfo }}</div>
     </span>
     <LoginModal
       v-if="displayModal"
@@ -36,13 +38,16 @@ export default {
   },
   data() {
     return {
-      displayModal: false,
-      login: false
+      displayModal: false
     };
   },
   methods: {
     showModal() {
-      this.displayModal = true;
+      if (this.isLoggedIn) {
+        this.$store.commit("SET_LOGIN_STATUS", false);
+      } else {
+        this.displayModal = true;
+      }
     },
     onChildClick(value) {
       this.displayModal = value;
@@ -51,6 +56,9 @@ export default {
   computed: {
     getUserInfo() {
       return this.$store.getters.GET_USER.username;
+    },
+    isLoggedIn() {
+      return this.$store.getters.GET_LOGIN_STATUS;
     }
   }
 };
@@ -71,10 +79,12 @@ export default {
     #f0af0b 67%,
     #efa90e
   );
+
   a {
     text-decoration: none;
     color: inherit;
   }
+
   span {
     /*vertical-align: middle;*/
   }

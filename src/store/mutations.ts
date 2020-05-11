@@ -4,5 +4,8 @@ export default {
   },
   SET_USER(state: any, user: any) {
     state.user = user;
+  },
+  SET_LOGIN_STATUS(state: any, login: boolean) {
+    state.login = login;
   }
 };

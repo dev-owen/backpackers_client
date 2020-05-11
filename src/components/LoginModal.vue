@@ -59,6 +59,7 @@ export default {
     logIn() {
       const { username, password } = this.userInfo;
       if (username !== "" && password !== "") {
+        this.$store.commit("SET_LOGIN_STATUS", true);
         this.$store.state.user = this.userInfo;
         this.$emit("childToParent", !this.displayModal);
       }

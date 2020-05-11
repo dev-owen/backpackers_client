@@ -12,7 +12,8 @@ export default new Vuex.Store({
       username: "",
       password: ""
     },
-    spots: []
+    spots: [],
+    login: false
   },
   getters,
   mutations,
