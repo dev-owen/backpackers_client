@@ -4,5 +4,8 @@ export default {
   },
   GET_LOGIN_STATUS(state: any) {
     return state.login;
+  },
+  GET_SPOT(state: any) {
+    return state.nowSpot;
   }
 };

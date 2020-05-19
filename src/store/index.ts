@@ -13,6 +13,10 @@ export default new Vuex.Store({
       password: ""
     },
     spots: [],
+    nowSpot: {
+      spotname: "",
+      country: ""
+    },
     login: false
   },
   getters,

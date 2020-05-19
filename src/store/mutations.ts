@@ -7,5 +7,8 @@ export default {
   },
   SET_LOGIN_STATUS(state: any, login: boolean) {
     state.login = login;
+  },
+  SET_NOWSPOT(state: any, spot: any) {
+    state.nowSpot = spot;
   }
 };

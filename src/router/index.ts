@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import Main from "../views/Main.vue";
 import About from "../views/About.vue";
 import User from "../views/User.vue";
+import Spot from "../views/Spot.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ const routes: Array<RouteConfig> = [
     path: "/user/:username",
     name: "User",
     component: User
+  },
+  {
+    path: "/spot/:country",
+    name: "Spot",
+    component: Spot
   }
 ];
 

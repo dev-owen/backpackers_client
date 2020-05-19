@@ -33,7 +33,13 @@ export default {
   },
   methods: {
     showDetail() {
-      alert(this.spot.title);
+      const nowSpot = {
+        spotname: this.spot.title,
+        country: this.spot.id
+      };
+      this.$store.commit("SET_NOWSPOT", nowSpot);
+      // 여기에서 /spot/:spotname 으로 이동
+      this.$router.push(`spot/${this.spot.id}`);
     }
   },
   computed: {
