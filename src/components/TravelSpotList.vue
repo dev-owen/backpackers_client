@@ -24,6 +24,13 @@ export default {
       .dispatch("FETCH_SPOTS")
       .then(() => console.log("success"))
       .catch(() => console.log("fail"));
+
+    this.$store
+      .dispatch("FETCH_ALL_USERS")
+      .then(() => console.log("success"))
+      .catch(() => console.log("fail"));
+
+    console.log(this.$store.state.allusers);
   }
 };
 </script>

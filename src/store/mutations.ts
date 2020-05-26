@@ -13,5 +13,8 @@ export default {
   },
   SET_NOWSPOT(state: any, spot: any) {
     state.nowSpot = spot;
+  },
+  SET_ALL_USERS(state: any, allusers: any) {
+    state.allusers = allusers;
   }
 };
