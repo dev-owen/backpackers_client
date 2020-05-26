@@ -32,7 +32,6 @@ export default {
 .travelspot-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 
   div div {
     width: 300px;

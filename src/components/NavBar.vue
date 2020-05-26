@@ -72,6 +72,15 @@ export default {
     }
   }
 };
+
+window.onscroll = () => {
+  const navbar = document.querySelector(".navbar");
+  const sticky = navbar.offsetTop;
+
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else navbar.classList.remove("sticky");
+};
 </script>
 
 <style scoped lang="scss">
@@ -82,6 +91,7 @@ export default {
   margin: -8px -8px 0;
   box-shadow: 3px 3px 5px 0 rgba(102, 102, 102, 0.5);
   font-family: "Baloo 2", sans-serif;
+  overflow: hidden;
   background-image: linear-gradient(
     to right,
     #f6cd00,
@@ -89,6 +99,13 @@ export default {
     #f0af0b 67%,
     #efa90e
   );
+  z-index: 10;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
   a {
     text-decoration: none;
