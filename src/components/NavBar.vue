@@ -49,6 +49,12 @@ export default {
     showModal() {
       if (this.isLoggedIn) {
         this.$store.commit("SET_LOGIN_STATUS", false);
+        const user = {
+          username: "",
+          password: ""
+        };
+        this.$store.commit("SET_USER", user);
+        this.$router.push("");
       } else {
         this.displayModal = true;
       }
