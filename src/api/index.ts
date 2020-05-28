@@ -10,8 +10,12 @@ function fetchSpots() {
   return axios.get(api.spots);
 }
 
+function fetchDummySpots() {
+  return axios.get("/data/spots.json");
+}
+
 function fetchAllUsers() {
   return axios.get(api.test);
 }
 
-export { fetchSpots, fetchAllUsers };
+export { fetchSpots, fetchAllUsers, fetchDummySpots };

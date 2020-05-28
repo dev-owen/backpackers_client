@@ -8,7 +8,7 @@
 
 <script>
 import TravelSpot from "./TravelSpot";
-import bus from "../utils/bus";
+// import bus from "../utils/bus";
 
 export default {
   name: "TravelSpotList",
@@ -22,14 +22,14 @@ export default {
     TravelSpot
   },
   created() {
-    bus.$emit("start:spinner");
-    this.$store
-      .dispatch("FETCH_SPOTS")
-      .then(() => {
-        console.log("success");
-        bus.$emit("end:spinner");
-      })
-      .catch(() => console.log("fail"));
+    // bus.$emit("start:spinner");
+    // this.$store
+    //   .dispatch("FETCH_DUMMY_SPOTS")
+    //   .then(() => {
+    //     console.log("success");
+    //     bus.$emit("end:spinner");
+    //   })
+    //   .catch(() => console.log("fail"));
     // this.$store
     //   .dispatch("FETCH_ALL_USERS")
     //   .then(() => console.log("success"))

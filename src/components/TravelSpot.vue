@@ -2,12 +2,14 @@
   <div class="travelspot" v-on:click="showDetail">
     <div class="content-top">#{{ rate }}</div>
     <div class="content-middle">
-      <div class="spot-name">{{ spot.title.substring(0, 15) }}</div>
-      <div class="spot-location">Jeonju, KOR</div>
+      <div class="spot-name">{{ spot.spotname.substring(0, 15) }}</div>
+      <div class="spot-location">
+        {{ spot.city_region }}, {{ spot.country }}
+      </div>
     </div>
     <div class="content-bottom">
       <div class="spot-category">Category</div>
-      <div class="spot-star-rate">{{ randomStars }}</div>
+      <div class="spot-star-rate">{{ spot.star_rate }}</div>
     </div>
   </div>
 </template>
@@ -33,18 +35,10 @@ export default {
   },
   methods: {
     showDetail() {
-      const nowSpot = {
-        spotname: this.spot.title,
-        country: this.spot.id
-      };
+      const nowSpot = this.spot;
       this.$store.commit("SET_NOWSPOT", nowSpot);
       // 여기에서 /spot/:spotname 으로 이동
       this.$router.push(`spot/${this.spot.id}`);
-    }
-  },
-  computed: {
-    randomStars() {
-      return Number((3 + Math.random() * 2).valueOf().toFixed(2));
     }
   }
 };
