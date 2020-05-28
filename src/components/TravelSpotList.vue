@@ -8,29 +8,34 @@
 
 <script>
 import TravelSpot from "./TravelSpot";
+import bus from "../utils/bus";
 
 export default {
   name: "TravelSpotList",
   data() {
     return {
-      rating: 1
+      rating: 1,
+      loadingStatus: false
     };
   },
   components: {
     TravelSpot
   },
   created() {
+    bus.$emit("start:spinner");
     this.$store
       .dispatch("FETCH_SPOTS")
-      .then(() => console.log("success"))
+      .then(() => {
+        console.log("success");
+        bus.$emit("end:spinner");
+      })
       .catch(() => console.log("fail"));
-
-    this.$store
-      .dispatch("FETCH_ALL_USERS")
-      .then(() => console.log("success"))
-      .catch(() => console.log("fail"));
-
-    console.log(this.$store.state.allusers);
+    // this.$store
+    //   .dispatch("FETCH_ALL_USERS")
+    //   .then(() => console.log("success"))
+    //   .catch(() => console.log("fail"));
+    //
+    // console.log(this.$store.state.allusers);
   }
 };
 </script>
