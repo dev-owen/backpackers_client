@@ -22,5 +22,11 @@ export default {
       return a.star_rate < b.star_rate ? 1 : -1;
     });
     state.spots = spots;
+  },
+  SET_COUNTRY_FILTER(state: any, country: string) {
+    state.filterCountry = country;
+  },
+  SET_REGION_FILTER(state: any, region: string) {
+    state.filterRegion = region;
   }
 };

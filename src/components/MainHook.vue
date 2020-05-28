@@ -3,30 +3,31 @@
     <div class="catch-phrase">{{ message }}</div>
     <div class="travel-filter">
       <div class="country filter-selection">
-        <div class="filter-sentence">{{ selectCountry }}</div>
+        <div class="filter-sentence">{{ sentence1 }}</div>
         <div class="filter-button">
-          <select v-model="country">
+          <select v-model="country" @change="selectCountry(country)">
             <option disabled value="">select country</option>
             <option
               v-bind:key="country"
               v-for="country in countryList"
               :value="country"
-              >{{ country }}</option
-            >
+              >{{ country }}
+            </option>
           </select>
         </div>
       </div>
       <div class="city-region filter-selection">
-        <div class="filter-sentence">{{ selectCity }}</div>
+        <div class="filter-sentence">{{ sentence2 }}</div>
         <div class="filter-button">
-          <select v-model="city">
+          <select v-model="city" @change="selectRegion(city)">
             <option disabled value="">select city</option>
             <option
               v-bind:key="city"
               v-for="city in cityList[country]"
               :value="city"
-              >{{ city }}</option
-            >
+              v-on:click="selectRegion(city)"
+              >{{ city }}
+            </option>
           </select>
         </div>
       </div>
@@ -40,8 +41,8 @@ export default {
   data() {
     return {
       message: `The world is \nmuch bigger than \nyou expected`,
-      selectCountry: `Select the \nCountry`,
-      selectCity: `Select the \nCity/Region`,
+      sentence1: `Select the \nCountry`,
+      sentence2: `Select the \nCity/Region`,
       countryList: ["SouthKorea", "France", "Austraila"],
       cityList: {
         SouthKorea: ["Seoul", "Busan", "Jeonju"],
@@ -52,7 +53,15 @@ export default {
       city: "Jeonju"
     };
   },
-  methods: {}
+  methods: {
+    selectCountry(country) {
+      console.log(country);
+      this.$store.commit("SET_COUNTRY_FILTER", country);
+    },
+    selectRegion(region) {
+      this.$store.commit("SET_REGION_FILTER", region);
+    }
+  }
 };
 </script>
 
