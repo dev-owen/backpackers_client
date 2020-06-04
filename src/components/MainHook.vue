@@ -23,7 +23,7 @@
             <option disabled value="">select city</option>
             <option
               v-bind:key="city"
-              v-for="city in cityList[country]"
+              v-for="city in regionList[country]"
               :value="city"
               v-on:click="selectRegion(city)"
               >{{ city }}
@@ -43,19 +43,18 @@ export default {
       message: `The world is \nmuch bigger than \nyou expected`,
       sentence1: `Select the \nCountry`,
       sentence2: `Select the \nCity/Region`,
-      countryList: ["SouthKorea", "France", "Austraila"],
-      cityList: {
-        SouthKorea: ["Seoul", "Busan", "Jeonju"],
-        France: ["Paris", "Lyon", "Nice"],
-        Austraila: ["Sydney", "Brisbaine"]
-      },
+      countryList: [],
+      regionList: {},
       country: "SouthKorea",
       city: "Jeonju"
     };
   },
+  mounted() {
+    this.countryList = this.$store.getters.GET_COUNTRYLIST;
+    this.regionList = this.$store.getters.GET_REGIONLIST;
+  },
   methods: {
     selectCountry(country) {
-      console.log(country);
       this.$store.commit("SET_COUNTRY_FILTER", country);
     },
     selectRegion(region) {

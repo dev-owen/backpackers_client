@@ -15,15 +15,12 @@ export default {
     state.nowSpot = spot;
   },
   SET_DUMMY_SPOTS(state: any, spots: any) {
-    spots.sort((a: any, b: any) => {
-      return a.star_rate < b.star_rate ? 1 : -1;
-    });
     state.spots = spots;
   },
-  SET_COUNTRY_FILTER(state: any, country: string) {
-    state.filterCountry = country;
+  SET_COUNTRYLIST(state: any, countryList: string[]) {
+    state.countryList = countryList;
   },
-  SET_REGION_FILTER(state: any, region: string) {
-    state.filterRegion = region;
+  SET_REGIONLIST(state: any, regionList: Record<string, any>) {
+    state.regionList = regionList;
   }
 };

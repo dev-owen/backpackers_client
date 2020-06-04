@@ -14,8 +14,8 @@ export default new Vuex.Store({
       password: ""
     },
     spots: data.spots,
-    filterCountry: "",
-    filterRegion: "",
+    countryList: [],
+    regionList: {},
     nowSpot: {
       id: 0,
       spotName: "",

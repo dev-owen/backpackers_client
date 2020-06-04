@@ -7,5 +7,11 @@ export default {
   },
   GET_SPOT(state: any) {
     return state.nowSpot;
+  },
+  GET_COUNTRYLIST(state: any) {
+    return state.countryList;
+  },
+  GET_REGIONLIST(state: any) {
+    return state.regionList;
   }
 };
