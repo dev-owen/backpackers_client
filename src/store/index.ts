@@ -13,15 +13,14 @@ export default new Vuex.Store({
       username: "",
       password: ""
     },
-    allusers: [],
     spots: data.spots,
     filterCountry: "",
     filterRegion: "",
     nowSpot: {
       id: 0,
-      spotname: "",
+      spotName: "",
       country: "",
-      cityRegion: "",
+      region: "",
       starRate: 0,
       image: "",
       description: ""

@@ -2,14 +2,12 @@
   <div class="travelspot" v-on:click="showDetail">
     <div class="content-top">#{{ rate }}</div>
     <div class="content-middle">
-      <div class="spot-name">{{ spot.spotname.substring(0, 15) }}</div>
-      <div class="spot-location">
-        {{ spot.city_region }}, {{ spot.country }}
-      </div>
+      <div class="spot-name">{{ spot.spotName.substring(0, 15) }}</div>
+      <div class="spot-location">{{ spot.region }}, {{ spot.country }}</div>
     </div>
     <div class="content-bottom">
       <div class="spot-category">Category</div>
-      <div class="spot-star-rate">{{ spot.star_rate }}</div>
+      <div class="spot-star-rate">{{ spot.starRate }}</div>
     </div>
   </div>
 </template>

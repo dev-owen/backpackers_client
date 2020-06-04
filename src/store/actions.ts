@@ -1,4 +1,4 @@
-import { fetchSpots, fetchAllUsers, fetchDummySpots } from "@/api";
+import { fetchSpots, fetchDummySpots } from "@/api";
 
 export default {
   // Promise
@@ -19,10 +19,5 @@ export default {
     const response = await fetchDummySpots();
     commit("SET_DUMMY_SPOTS", response.data);
     return response;
-  },
-  FETCH_ALL_USERS({ commit }: { commit: any }) {
-    return fetchAllUsers().then(response =>
-      commit("SET_ALL_USERS", response.data)
-    );
   }
 };
