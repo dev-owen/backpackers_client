@@ -1,5 +1,5 @@
 <template>
-  <div class="travelspot" v-on:click="showDetail">
+  <div class="travelspot" v-bind:class="spot.country" v-on:click="showDetail">
     <div class="content-top">#{{ this.rating }}</div>
     <div class="content-middle">
       <div class="spot-name">{{ spot.spotName.substring(0, 15) }}</div>
@@ -42,6 +42,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../utils/imagePath.scss";
+
 .travelspot {
   font-family: HelveticaNeue, sans-serif;
   font-stretch: normal;
@@ -49,6 +51,24 @@ export default {
   line-height: 1;
   letter-spacing: normal;
   padding: 20px;
+
+  & .KOR {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5) 100%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      $korea;
+    background-size: cover;
+  }
+
+  & .FRA {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5) 100%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      $france;
+    background-size: cover;
+  }
 
   .content-top {
     text-align: left;

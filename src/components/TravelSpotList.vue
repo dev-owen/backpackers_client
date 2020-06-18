@@ -1,8 +1,5 @@
 <template>
   <div class="travelspot">
-    <div class="filter-button">
-      <button v-on:click="sortByStarRate">sort</button>
-    </div>
     <div class="spot-list">
       <div v-bind:key="spot.id" v-for="(spot, index) in this.spots">
         <TravelSpot v-bind:content="spot" v-bind:rating="index + 1" />
@@ -42,13 +39,14 @@ export default {
     });
     this.$store.commit("SET_COUNTRYLIST", country);
     this.$store.commit("SET_REGIONLIST", region);
+    this.sortByStarRate();
   },
   methods: {
     sortByStarRate() {
       const spots = this.spots;
       spots.sort((a, b) => {
         if (a.starRate === b.starRate) {
-          return a.spotName < b.spotName ? 1 : -1;
+          return a.spotName > b.spotName ? 1 : -1;
         } else {
           return a.starRate < b.starRate ? 1 : -1;
         }
@@ -73,8 +71,6 @@ export default {
     div div {
       width: 300px;
       height: 200px;
-      opacity: 0.5;
-      background-color: black;
       padding: 20px;
       margin: 15px;
       color: white;
