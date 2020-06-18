@@ -87,7 +87,7 @@ window.onscroll = () => {
 .navbar {
   display: flex;
   height: 50px;
-  padding: 10px 40px 10px 25px;
+  padding: 15px 40px 10px 25px;
   margin: -8px -8px 0;
   box-shadow: 3px 3px 5px 0 rgba(102, 102, 102, 0.5);
   font-family: "Baloo 2", sans-serif;
@@ -104,7 +104,7 @@ window.onscroll = () => {
   &.sticky {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 95%;
   }
 
   a {

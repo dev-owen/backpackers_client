@@ -13,5 +13,8 @@ export default {
   },
   GET_REGIONLIST(state: any) {
     return state.regionList;
+  },
+  GET_SPOTS(state: any) {
+    return state.spots;
   }
 };

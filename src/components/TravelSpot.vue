@@ -1,6 +1,6 @@
 <template>
   <div class="travelspot" v-on:click="showDetail">
-    <div class="content-top">#{{ rate }}</div>
+    <div class="content-top">#{{ this.rating }}</div>
     <div class="content-middle">
       <div class="spot-name">{{ spot.spotName.substring(0, 15) }}</div>
       <div class="spot-location">{{ spot.region }}, {{ spot.country }}</div>
@@ -27,8 +27,7 @@ export default {
   },
   data() {
     return {
-      spot: this.content,
-      rate: this.rating
+      spot: this.content
     };
   },
   methods: {

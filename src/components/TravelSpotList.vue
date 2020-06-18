@@ -4,10 +4,7 @@
       <button v-on:click="sortByStarRate">sort</button>
     </div>
     <div class="spot-list">
-      <div
-        v-bind:key="spot.id"
-        v-for="(spot, index) in this.$store.state.spots"
-      >
+      <div v-bind:key="spot.id" v-for="(spot, index) in this.spots">
         <TravelSpot v-bind:content="spot" v-bind:rating="index + 1" />
       </div>
     </div>
@@ -23,7 +20,8 @@ export default {
   data() {
     return {
       rating: 1,
-      loadingStatus: false
+      loadingStatus: false,
+      spots: this.$store.getters.GET_SPOTS
     };
   },
   components: {
@@ -47,11 +45,15 @@ export default {
   },
   methods: {
     sortByStarRate() {
-      const spots = this.$store.state.spots;
+      const spots = this.spots;
       spots.sort((a, b) => {
-        return a.starRate < b.starRate ? 1 : -1;
+        if (a.starRate === b.starRate) {
+          return a.spotName < b.spotName ? 1 : -1;
+        } else {
+          return a.starRate < b.starRate ? 1 : -1;
+        }
       });
-      this.$store.commit("SET_DUMMY_SPOT", spots);
+      this.spots = spots;
     }
   }
 };
