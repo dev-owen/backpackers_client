@@ -28,6 +28,14 @@ export default {
     const spots = this.$store.state.spots;
     const country = [];
     const region = {};
+    const selectedCountry = this.$store.getters.GET_SELECTED_COUNTRY;
+    const selectedRegion = this.$store.getters.GET_SELECTED_REGION;
+    if (selectedCountry !== "") {
+      spots.filter(spot => spot.country === selectedCountry);
+    }
+    if (selectedRegion !== "") {
+      spots.filter(spot => spot.region === selectedRegion);
+    }
     spots.forEach(spot => {
       if (!country.includes(spot.country)) {
         country.push(spot.country);
@@ -39,11 +47,23 @@ export default {
     });
     this.$store.commit("SET_COUNTRYLIST", country);
     this.$store.commit("SET_REGIONLIST", region);
-    this.sortByStarRate();
+    this.sortByStarRate(spots);
   },
+  // TODO : filter에 따라 리스트 업데이트 해야 하는 기능 구현 필요
+  // computed() {
+  //   const spots = this.$store.state.spots;
+  //   const selectedCountry = this.$store.getters.GET_SELECTED_COUNTRY;
+  //   const selectedRegion = this.$store.getters.GET_SELECTED_REGION;
+  //   if (selectedCountry !== "") {
+  //     spots.filter(spot => spot.country === selectedCountry);
+  //   }
+  //   if (selectedRegion !== "") {
+  //     spots.filter(spot => spot.region === selectedRegion);
+  //   }
+  //   this.sortByStarRate(spots);
+  // },
   methods: {
-    sortByStarRate() {
-      const spots = this.spots;
+    sortByStarRate(spots) {
       spots.sort((a, b) => {
         if (a.starRate === b.starRate) {
           return a.spotName > b.spotName ? 1 : -1;

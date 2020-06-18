@@ -55,10 +55,10 @@ export default {
   },
   methods: {
     selectCountry(country) {
-      this.$store.commit("SET_COUNTRY_FILTER", country);
+      this.$store.commit("SET_SELECTED_COUNTRY", country);
     },
     selectRegion(region) {
-      this.$store.commit("SET_REGION_FILTER", region);
+      this.$store.commit("SET_SELECTED_REGION", region);
     }
   }
 };

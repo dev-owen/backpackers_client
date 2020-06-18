@@ -25,7 +25,9 @@ export default new Vuex.Store({
       image: "",
       description: ""
     },
-    login: false
+    login: false,
+    selectedCountry: "",
+    selectedRegion: ""
   },
   getters,
   mutations,

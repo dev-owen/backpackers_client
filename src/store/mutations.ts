@@ -22,5 +22,11 @@ export default {
   },
   SET_REGIONLIST(state: any, regionList: Record<string, any>) {
     state.regionList = regionList;
+  },
+  SET_SELECTED_COUNTRY(state: any, country: any) {
+    state.selectedCountry = country;
+  },
+  SET_SELECTED_REGION(state: any, region: any) {
+    state.selectedRegion = region;
   }
 };

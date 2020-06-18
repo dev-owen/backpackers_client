@@ -16,5 +16,11 @@ export default {
   },
   GET_SPOTS(state: any) {
     return state.spots;
+  },
+  GET_SELECTED_COUNTRY(state: any) {
+    return state.selectedCountry;
+  },
+  GET_SELECTED_REGION(state: any) {
+    return state.selectedRegion;
   }
 };
